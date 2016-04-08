@@ -1,76 +1,41 @@
-$(function(){
+$(document).ready(function() {
   "use strict";
 
-
-
-function createMissile(){
-
- // var body = $('body');
- // var missile = $('<div class="missile"></div>');
- // var missile = $('.missile').clone();
- // console.log('append on line 11')
-  // body.append(missile);
-
-  // for (x=0;x<20;x++){
-
-  // setInterval(function(){
-  //   missile.toggleClass("fall");
-  // }, 150)
-
-  //  // missile.css("top", 250);
-  //  // missile.css("left", 250);
-
-  //  setTimeout(function(){
-  //   missile.css("left", 500)
-  //  }, 1000);
-
-
-
-
-
-
-
- // var missile = ($(img).attr(src,’desktop/missile’))
- // var Missile = $('<div id="missile"></div>');
- //  body.append(missile);
+function getRandomX(){
+  var rand = (Math.random() * ($(document).width()-32)).toFixed();
+  console.log(rand)
+  return rand;
 }
 
-var topDivsArray = ['msOne', 'msTwo', 'msThree', 'msFour', 'msFive'];
-
-var randomDiv = function() {
-  var miss = topDivsArray[Math.floor(Math.random() * (topDivsArray.length - 0) + 0)];
-  //console.log(miss)
-  return miss;
+var missileShoot = function(missile){
+  $(missile).css('left',getRandomX()+'px')
+  $(missile).css('top','90%')
 }
-
-
-
-
-
-
-//createMissile();
 
 var missileAppend = function() {
-  setInterval(function() {
-    var startingPoint = randomDiv();
+  var clonedDiv = $('#msOne').clone();
+  clonedDiv.attr("id", "msTwo");
+  clonedDiv.css("display", "block");
+  clonedDiv.css("left",getRandomX()+'px')
+  clonedDiv.css("top",'0px')
+  $('body').append(clonedDiv)
 
-      $('#' + startingPoint).append('<div class="projectile"></div>');
-      console.log(startingPoint)
+  $(clonedDiv).click(function(){
+    console.log('clicked missile')
+    $(this).addClass('shot');
+    var blah = $(this)
+    setTimeout(function(){
+      blah.remove()
+    },1000)
+  });
 
-
-    }, 1000);
+  setTimeout(function(){
+    missileShoot(clonedDiv)
+  },1)
 };
-missileAppend();
-
-
-var missileAnimation = function() {
-  $('.projectile').animate({top: '500'}, 1000);
-  //console.log('animation')
-};
-
-setInterval(function() {
-  missileAnimation();
-}, 2000);
+ setInterval(function(){
+  missileAppend();
+  },500)
 
 
 
