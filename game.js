@@ -1,6 +1,18 @@
 $(document).ready(function() {
   "use strict";
 
+setInterval(function(){
+  $('.topDivs').each(function(){
+    var pos = $(this).css('top')
+    pos = pos.replace('px','')
+    var max = $(document).height()
+    if (pos > (max-100))
+      console.log('FAIL')
+    // console.log(pos)
+    // if ()
+  })
+},1000)
+
 function getRandomX(){
   var rand = (Math.random() * ($(document).width()-32)).toFixed();
   console.log(rand)
@@ -25,7 +37,7 @@ var missileAppend = function() {
     $(this).addClass('shot');
     var blah = $(this)
     setTimeout(function(){
-      blah.remove()
+    blah.remove()
     },1000)
   });
 
@@ -35,7 +47,16 @@ var missileAppend = function() {
 };
  setInterval(function(){
   missileAppend();
-  },500)
+  },2500)
+
+
+
+
+ // setTimeout(function(){
+ // for(var i = 0; i > 90%, i++)
+ // }
+
+
 
 
 
