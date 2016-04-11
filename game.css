@@ -8,7 +8,7 @@ body{margin:0;}
   background-repeat: no-repeat;
   position: absolute;
   display: none;
-  transition: left 10s, top 11s;
+  transition: left 20s, top 20s;
 }
 .shot {
   background-position: center;
