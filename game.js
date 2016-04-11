@@ -49,13 +49,24 @@ var missileAppend = function() {
   missileAppend();
   },2500)
 
+// for(var i=0; i<10; i++) {
+//     missile();
+//   }
+
+
+function checkForWinner(){
+    if ($('missile').length === 5){
+      alert("Winner!");
+    }
+  }
+checkForWinner();
 
 
 
  // setTimeout(function(){
- // for(var i = 0; i > 90%, i++)
- // }
-
+ //    missile.remove();
+ //    checkForWinner();
+ //   }, 1)
 
 
 
