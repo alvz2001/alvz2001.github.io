@@ -1,0 +1,28 @@
+body{margin:0;}
+
+.topDivs {
+  width: 60px;
+  height: 50px;
+  padding: 10px;
+  background-image: url('tinymissile.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  display: none;
+  transition: left 20s, top 20s;
+}
+.shot {
+  background-position: center;
+  background-size: contain;
+  background-image: url('boom2.png');
+}
+
+.city {
+  width: 100%;
+  height: 1000px;
+  bottom: 0;
+  background-image: url('fort.png');
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
