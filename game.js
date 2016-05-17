@@ -1,13 +1,18 @@
 $(document).ready(function() {
   "use strict";
 
+var missilesDown = 0;
+
+
 setInterval(function(){
   $('.topDivs').each(function(){
     var pos = $(this).css('top')
     pos = pos.replace('px','')
     var max = $(document).height()
-    if (pos > (max-100))
+    if (pos > (max-100)) {
+      $(this).remove();
       console.log('FAIL')
+    }
     // console.log(pos)
     // if ()
   })
@@ -33,7 +38,13 @@ var missileAppend = function() {
   $('body').append(clonedDiv)
 
   $(clonedDiv).click(function(){
-    console.log('clicked missile')
+    missilesDown++;
+    console.log('clicked missile' + missilesDown);
+    if (missilesDown > 5) {
+      var $winner = $('<h1 style="color: black;"></h1>');
+      $winner.text('Winner')
+      $('#messages').append($winner)
+    }
     $(this).addClass('shot');
     var blah = $(this)
     setTimeout(function(){
